@@ -1,0 +1,19 @@
+Source: erlang-erlmysql
+Section: devel
+Priority: extra
+Maintainer: Aleksey Morarash <aleksey.morarash@envisionx.co>
+Build-Depends: debhelper (>= 8.0.0), erlang-base
+Standards-Version: 3.9.3
+Homepage: http://sourceforge.net/projects/erlmysql/
+
+Package: erlang-erlmysql
+Architecture: all
+Depends: erlang-base, erlang-erlpool
+Description: Erlang MySQL Driver
+ ErlMySQL is a MySQL client written in Erlang and provides
+ API that is very close to Connector/C library. The client
+ is using low level (TCP/IP socket) connection to MySQL
+ server and allows to exchange a data with maximum possible
+ speed. Multiple datasource support and connection pool are
+ incapsulated in the client that increases a performance in
+ concurrent environment.

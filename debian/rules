@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	mkdir -p ebin
+	cp src/mysql_client.app.src ebin/mysql_client.app
+	erlc -I include -o ebin src/*.erl
+
+# Implement staged installation
+DESTDIR = debian/erlang-erlmysql
+VERSION = 1.2.8
+ERL_APP_DESTDIR = $(DESTDIR)/usr/lib/erlang/lib/erlmysql-$(VERSION)/ebin
+override_dh_install:
+	install -m 755 -d $(ERL_APP_DESTDIR)
+	install -m 644 ebin/*.app ebin/*.beam $(ERL_APP_DESTDIR)

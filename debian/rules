@@ -14,8 +14,13 @@ override_dh_auto_build:
 
 # Implement staged installation
 DESTDIR = debian/erlang-erlmysql
+DEV_DESTDIR = debian/erlang-erlmysql-dev
 VERSION = 1.2.8
-ERL_APP_DESTDIR = $(DESTDIR)/usr/lib/erlang/lib/erlmysql-$(VERSION)/ebin
+ERL_APP_DIR = /usr/lib/erlang/lib/erlmysql-$(VERSION)
 override_dh_install:
-	install -m 755 -d $(ERL_APP_DESTDIR)
-	install -m 644 ebin/*.app ebin/*.beam $(ERL_APP_DESTDIR)
+	install -m 755 -d $(DESTDIR)$(ERL_APP_DIR)/ebin
+	install -m 644 ebin/*.app ebin/*.beam \
+	    $(DESTDIR)$(ERL_APP_DIR)/ebin
+	install -m 755 -d $(DEV_DESTDIR)$(ERL_APP_DIR)/include
+	install -m 644 include/client_records.hrl \
+	    $(DEV_DESTDIR)$(ERL_APP_DIR)/include

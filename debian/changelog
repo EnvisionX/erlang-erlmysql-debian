@@ -1,4 +1,4 @@
-erlang-erlmysql (1.2.8) unstable; urgency=low
+erlang-erlmysql (1.2.8-2) unstable; urgency=low
 
   * Initial release for Debian.
 

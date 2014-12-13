@@ -17,3 +17,8 @@ Description: Erlang MySQL Driver
  speed. Multiple datasource support and connection pool are
  incapsulated in the client that increases a performance in
  concurrent environment.
+
+Package: erlang-erlmysql-dev
+Architecture: all
+Description: Erlang MySQL Driver header files
+ Erlang MySQL Driver header files.

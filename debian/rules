@@ -22,5 +22,7 @@ override_dh_install:
 	install -m 644 ebin/*.app ebin/*.beam \
 	    $(DESTDIR)$(ERL_APP_DIR)/ebin
 	install -m 755 -d $(DEV_DESTDIR)$(ERL_APP_DIR)/include
-	install -m 644 include/client_records.hrl \
+	install -m 644 \
+	    include/client_records.hrl \
+	    include/mysql_types.hrl \
 	    $(DEV_DESTDIR)$(ERL_APP_DIR)/include
